@@ -30,7 +30,23 @@ const Test = () => {
         console.log(error);
       });
   };
-  return <h1>Test</h1>;
+  return (
+    <>
+      <h1>Displaying characters from API</h1>
+      <ul className="list-group">
+        {/* If characters is false, it has elements, create li elements for each charater */}
+        {!!characters &&
+          characters.results.length > 0 &&
+          characters.results.map(character => {
+            return (
+              <li className="list-group-item" key={character.id}>
+                {character.name}
+              </li>
+            );
+          })}
+      </ul>
+    </>
+  );
 };
 
 export default Test;
